@@ -6,6 +6,12 @@ from torchvision import datasets, transforms, models
 from tqdm import tqdm
 
 # ==========================================
+# 0. Check for GPU availability
+# ==========================================
+if torch.cuda.is_available():
+        print("CUDA")
+
+# ==========================================
 # 1. Data Preprocessing & DataLoader
 # ==========================================
 train_transform = transforms.Compose([
@@ -50,11 +56,11 @@ optimizer = optim.Adam(model.classifier.parameters(), lr=0.001)
 # ==========================================
 # 3. Training & Validation Loop (พื้นฐาน)
 # ==========================================
-for inputs, labels in tqdm(train_loader, desc=f"Epoch {epoch+1}"):
+for epoch in range(10):
     # --- Train ---
     model.train()
     train_loss, train_correct = 0.0, 0
-    for inputs, labels in train_loader:
+    for inputs, labels in tqdm(train_loader, desc=f"Epoch {epoch+1}"):
         inputs, labels = inputs.to(device), labels.to(device)
 
         optimizer.zero_grad()
