@@ -3,6 +3,7 @@ import torch.nn as nn
 import torch.optim as optim
 from torch.utils.data import DataLoader
 from torchvision import datasets, transforms, models
+from tqdm import tqdm
 
 # ==========================================
 # 1. Data Preprocessing & DataLoader
@@ -49,7 +50,7 @@ optimizer = optim.Adam(model.classifier.parameters(), lr=0.001)
 # ==========================================
 # 3. Training & Validation Loop (พื้นฐาน)
 # ==========================================
-for epoch in range(10):
+for inputs, labels in tqdm(train_loader, desc=f"Epoch {epoch+1}"):
     # --- Train ---
     model.train()
     train_loss, train_correct = 0.0, 0
