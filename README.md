@@ -31,33 +31,13 @@ Term Project วิชา 517433 Deep Learning for Computer Vision
 DLProj/
 ├── README.md
 ├── requirements.txt
-├── data.zip            # ชุดข้อมูลแบบบีบอัด
-├── data/
-│   ├── train/          # โฟลเดอร์ย่อยตามชื่อคลาส (ImageFolder)
-│   ├── val/
-│   └── test/
 ├── src/                # โค้ดเทรนและ notebook การทดลอง
 │   └── exp1_baseline.ipynb
 ├── notebooks/
 └── saves/              # น้ำหนักโมเดลที่บันทึกไว้
 ```
 
-## วิธีรัน
-
-```bash
-# 1. สร้าง environment และติดตั้ง library
-python -m venv .venv
-source .venv/bin/activate
-pip install -r requirements.txt
-
-# 2. แตกไฟล์ข้อมูล (ถ้ายังไม่มีโฟลเดอร์ data/)
-unzip data.zip
-
-# 3. เปิด notebook
-jupyter lab
-```
-
-เปิด `src/exp1_baseline.ipynb` แล้วรันทีละเซลล์ โค้ดอ่านข้อมูลจาก `../data/train`, `../data/val` และ `../data/test` ดังนั้นต้องรัน notebook จากโฟลเดอร์ที่อยู่ระดับเดียวกับ `data/` (เช่น `src/`)
+เปิด `src/exp1_baseline.ipynb`
 
 ## โมเดลและการเทรน
 
